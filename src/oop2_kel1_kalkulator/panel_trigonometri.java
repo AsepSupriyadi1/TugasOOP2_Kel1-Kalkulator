@@ -5,17 +5,55 @@
  */
 package oop2_kel1_kalkulator;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+
+class CalculatorInput {
+    JButton button;
+    JTextField textField;
+    JLabel alert;
+    
+    public CalculatorInput(JButton button, JTextField textField, JLabel alert){
+        this.button = button;
+        this.textField = textField;
+        this.alert = alert;
+    }
+    
+}
+
+
+
 /**
  *
  * @author TUF
  */
 public class panel_trigonometri extends javax.swing.JFrame {
 
+    
+    protected static HashMap<String, CalculatorInput> listClickedButton = new HashMap<>();
     /**
      * Creates new form panel_trigonometri
      */
     public panel_trigonometri() {
         initComponents();
+        
+        CalculatorInput optionA = new CalculatorInput(buttonA, textFieldA, alertA);
+        CalculatorInput optionB = new CalculatorInput(buttonB, textFieldB, alertB);
+        CalculatorInput optionC = new CalculatorInput(buttonC, textFieldC, alertC);
+        
+        alertA.setVisible(false);
+        alertB.setVisible(false);
+        alertC.setVisible(false);
+        
+        
+        listClickedButton.put("optionA", optionA);
+        listClickedButton.put("optionB", optionB);
+        listClickedButton.put("optionC", optionC);
     }
 
     /**
@@ -27,21 +65,209 @@ public class panel_trigonometri extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        textFieldA = new javax.swing.JTextField();
+        SubmitBtn = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textArea = new javax.swing.JTextArea();
+        buttonB = new javax.swing.JButton();
+        buttonC = new javax.swing.JButton();
+        buttonA = new javax.swing.JButton();
+        textFieldC = new javax.swing.JTextField();
+        textFieldB = new javax.swing.JTextField();
+        alertA = new javax.swing.JLabel();
+        alertC = new javax.swing.JLabel();
+        alertB = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/triangle.png"))); // NOI18N
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel1.setText("SEDERHANA");
+
+        SubmitBtn.setText("SUBMIT");
+        SubmitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubmitBtnActionPerformed(evt);
+            }
+        });
+
+        textArea.setColumns(20);
+        textArea.setRows(5);
+        textArea.setBorder(null);
+        jScrollPane1.setViewportView(textArea);
+
+        buttonB.setText("b");
+        buttonB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonBActionPerformed(evt);
+            }
+        });
+
+        buttonC.setText("C");
+        buttonC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCActionPerformed(evt);
+            }
+        });
+
+        buttonA.setText("a");
+        buttonA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonAActionPerformed(evt);
+            }
+        });
+
+        alertA.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        alertA.setText("?");
+
+        alertC.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        alertC.setText("?");
+
+        alertB.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        alertB.setText("?");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel3.setText("Kalkulator Pythagoras");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 800, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(268, 268, 268)
+                        .addComponent(alertC))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(buttonB)
+                            .addComponent(textFieldB, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(alertB)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(alertA)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buttonA)
+                            .addComponent(textFieldA, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(243, 243, 243)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(textFieldC, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonC))))
+                .addGap(57, 57, 57)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(SubmitBtn))
+                .addContainerGap(35, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addGap(205, 205, 205))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(66, 66, 66)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(SubmitBtn))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(73, 73, 73)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(textFieldA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buttonA))
+                            .addComponent(alertA)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(117, 117, 117)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(textFieldB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(alertB))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buttonB)))
+                        .addGap(6, 6, 6)
+                        .addComponent(alertC)
+                        .addGap(18, 18, 18)
+                        .addComponent(textFieldC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buttonC)))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    
+    private static void watchButton(){
+//        System.out.println(listClickedButton.keySet().toString());
+        if(listClickedButton.size() == 1){
+            System.out.println(listClickedButton.keySet().toArray()[0]);
+            String keyOflastButton = (String) listClickedButton.keySet().toArray()[0];
+            System.out.println(keyOflastButton);
+            
+            CalculatorInput itemDitanya = listClickedButton.get(keyOflastButton);
+  
+            
+            itemDitanya.button.setVisible(false);
+            itemDitanya.textField.setVisible(false);
+            itemDitanya.alert.setVisible(true);
+        }
+    }
+    
+    
+    private void SubmitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitBtnActionPerformed
+        // TODO add your handling code here:
+
+        
+//        for (JButton btn : listClickedButton) {
+//            hasil += "Button " + btn.getText() + "/n";
+//        }
+        
+//        textArea.setText(hasil);
+        
+        
+    }//GEN-LAST:event_SubmitBtnActionPerformed
+
+    private void buttonBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBActionPerformed
+        // TODO add your handling code here:
+        listClickedButton.remove("optionB");
+        buttonB.setVisible(false);
+        watchButton();
+    }//GEN-LAST:event_buttonBActionPerformed
+
+    private void buttonCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCActionPerformed
+        // TODO add your handling code here:
+        listClickedButton.remove("optionC");
+        buttonC.setVisible(false);
+        watchButton();
+    }//GEN-LAST:event_buttonCActionPerformed
+
+    private void buttonAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAActionPerformed
+        // TODO add your handling code here:
+        listClickedButton.remove("optionA");
+        buttonA.setVisible(false);
+        watchButton();
+    }//GEN-LAST:event_buttonAActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +305,20 @@ public class panel_trigonometri extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton SubmitBtn;
+    private javax.swing.JLabel alertA;
+    private javax.swing.JLabel alertB;
+    private javax.swing.JLabel alertC;
+    private javax.swing.JButton buttonA;
+    private javax.swing.JButton buttonB;
+    private javax.swing.JButton buttonC;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea textArea;
+    private javax.swing.JTextField textFieldA;
+    private javax.swing.JTextField textFieldB;
+    private javax.swing.JTextField textFieldC;
     // End of variables declaration//GEN-END:variables
 }
